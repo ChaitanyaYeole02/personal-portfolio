@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  --line-color: #e5e7eb;
+}
+
+html.dark {
+  --line-color: rgba(255, 255, 255, 0.2);
+}
+
+.borderBlack {
+  @apply border border-black/10;
+}
+
+.justify-text {
+  text-align: justify;
+}
+
+.qualification__tabs {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: var(--mb-2);
+}
+
+.qualification__button {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.qualification__active[data-content] {
+  display: block;
+}
+
+.qualification__icon {
+  font-size: 1.8rem;
+}
+
+.qualification__sections {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.qualification__description {
+  white-space: pre-line;
+}

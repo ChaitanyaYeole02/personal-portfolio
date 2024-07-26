@@ -1,7 +1,22 @@
 {
   "compilerOptions": {
+    "target": "es5", // Optional: This is the default, but you can set it to "es6" or "esnext" if you prefer.
+    "lib": ["dom", "dom.iterable", "esnext"], // Include the necessary libraries.
+    "allowJs": true, // Allows JavaScript files.
+    "skipLibCheck": true, // Optional: Skip type checking of declaration files.
+    "strict": true, // Optional: Enable all strict type-checking options.
+    "forceConsistentCasingInFileNames": true, // Optional: Ensure consistent casing in filenames.
+    "esModuleInterop": true, // Enables compatibility with CommonJS modules.
+    "module": "esnext", // Use "esnext" for modern module features.
+    "moduleResolution": "node", // Use Node.js-style module resolution.
+    "resolveJsonModule": true, // Allows importing JSON modules.
+    "isolatedModules": true, // Optional: Ensures that each file can be safely transpiled without depending on other files.
+    "jsx": "preserve", // Keeps JSX syntax for further processing (e.g., by Babel).
+    "incremental": true, // Optional: Enables incremental compilation.
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // Optional: Set up path aliases if needed.
     }
-  }
+  },
+  "include": ["**/*.js", "**/*.jsx"], // Include JavaScript and JSX files.
+  "exclude": ["node_modules"] // Exclude the node_modules directory.
 }
