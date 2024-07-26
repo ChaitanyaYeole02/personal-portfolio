@@ -1,4 +1,5 @@
 import React from "react";
+import Head from 'next/head';
 import Header from "@/components/Header";
 import '../styles/globals.css';
 import { Inter } from "next/font/google";
@@ -11,10 +12,22 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Ricardo | Personal Portfolio",
-  description: "Ricardo is a full-stack developer with 8 years of experience.",
+  title: "Chaitanya | Personal Portfolio",
+  description: "Chaitanya is a backend developer with 3 years of experience.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+    other: [
+      { rel: 'android-chrome-192x192', url: '/android-chrome-192x192.png' },
+    ],
+  },
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="!scroll-smooth">

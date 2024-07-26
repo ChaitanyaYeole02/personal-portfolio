@@ -31,7 +31,7 @@ export default function Intro() {
             }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=368&h=368&q=100"
+              src="https://media.licdn.com/dms/image/D4E03AQHWQKFnlWTMRg/profile-displayphoto-shrink_800_800/0/1700104091577?e=1727308800&v=beta&t=HCsMOcggD02pJZ64itDU7gPVd6PpWWIj2u4wHl3lBcI"
               alt="Chaitanya portrait"
               width={192}
               height={192}
