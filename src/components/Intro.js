@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -10,110 +9,138 @@ import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/Hooks";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 
+// Animation variants for cleaner motion code
+const containerVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const buttonsVariants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.1 }
+  }
+};
+
+// Social links data for better maintainability
+const socialLinks = [
+  {
+    href: "https://www.linkedin.com/in/chaitanyayeole/",
+    icon: BsLinkedin,
+    label: "LinkedIn Profile",
+    ariaLabel: "Visit LinkedIn profile"
+  },
+  {
+    href: "https://github.com/ChaitanyaYeole02",
+    icon: FaGithubSquare,
+    label: "GitHub Profile",
+    ariaLabel: "Visit GitHub profile"
+  }
+];
+
+// Action buttons data
+const actionButtons = [
+  {
+    type: "link",
+    href: "#contact",
+    icon: BsArrowRight,
+    label: "Contact me here",
+    className: "gameboy-button group flex items-center gap-2",
+    onClick: (setActiveSection, setTimeOfLastClick) => {
+      setActiveSection("Contact");
+      setTimeOfLastClick(Date.now());
+    }
+  },
+  {
+    type: "download",
+    href: "/ChaitanyaYeoleResume.pdf",
+    icon: HiDownload,
+    label: "Download Resume",
+    className: "gameboy-button group flex items-center gap-2",
+    download: true
+  }
+];
+
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+
+  const handleContactClick = () => {
+    setActiveSection("Contact");
+    setTimeOfLastClick(Date.now());
+  };
 
   return (
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      className="mb-40 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
     >
-      <div className="flex items-center justify-center">
-        <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "tween",
-              duration: 0.2,
-            }}
-          >
-            <Image
-              src="https://media.licdn.com/dms/image/D4E03AQHWQKFnlWTMRg/profile-displayphoto-shrink_800_800/0/1700104091577?e=1727308800&v=beta&t=HCsMOcggD02pJZ64itDU7gPVd6PpWWIj2u4wHl3lBcI"
-              alt="Chaitanya portrait"
-              width={192}
-              height={192}
-              quality={95}
-              priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
-            />
-          </motion.div>
-
-          <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-          >
-            👋
-          </motion.span>
-        </div>
-      </div>
-
+      {/* Main Title */}
       <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="mb-10 mt-4 px-4 gameboy-title"
+        variants={titleVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <span className="font-bold">Hello, I&apos;m Chaitanya.</span> I&apos;m a{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">3 years</span> of experience. I enjoy
-        developing <span className="italic">innovative solutions</span>.
+        Hello, I&apos;m CHAITANYA
       </motion.h1>
 
+      {/* Action Buttons Container */}
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 text-lg font-medium"
+        variants={buttonsVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <Link
-          href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
-          onClick={() => {
-            setActiveSection("Contact");
-            setTimeOfLastClick(Date.now());
-          }}
-        >
-          Contact me here{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
-        </Link>
+        {/* Primary Action Buttons */}
+        {actionButtons.map((button, index) => (
+          <React.Fragment key={index}>
+            {button.type === "link" ? (
+              <Link
+                href={button.href}
+                className={button.className}
+                onClick={() => button.onClick?.(setActiveSection, setTimeOfLastClick)}
+              >
+                <span className="press-start-2p">{button.label}</span>
+                <button.icon className="opacity-100" />
+              </Link>
+            ) : (
+              <a
+                className={button.className}
+                href={button.href}
+                download={button.download}
+              >
+                <span className="press-start-2p">{button.label}</span>
+                <button.icon className="opacity-100" />
+              </a>
+            )}
+          </React.Fragment>
+        ))}
 
-        <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/ChaitanyaYeoleResume.pdf"
-          download
-        >
-          Download Resume{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/chaitanya-yeole/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <BsLinkedin />
-        </a>
-
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/ChaitanyaYeole02"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithubSquare />
-        </a>
+        {/* Social Media Links */}
+        {socialLinks.map((link, index) => {
+          const IconComponent = link.icon;
+          return (
+            <a
+              key={index}
+              className="gameboy-button flex items-center gap-2"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.ariaLabel}
+            >
+              <IconComponent />
+            </a>
+          );
+        })}
       </motion.div>
     </section>
   );

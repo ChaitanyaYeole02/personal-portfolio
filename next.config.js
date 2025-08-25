@@ -4,10 +4,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "ghchart.rshah.org",
       },
     ],
     unoptimized: true,
+    dangerouslyAllowSVG: true,
   },
   experimental: {
     serverActions: true,

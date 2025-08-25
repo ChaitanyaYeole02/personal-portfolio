@@ -8,11 +8,14 @@ import Publications from '@/components/Publications';
 import Awards from '@/components/Awards';
 import SectionDivider from "@/components/SectionDivider";
 import Skills from "@/components/Skills";
+import GitHubContributions from "@/components/GitHubContributions";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center px-4">
       <Intro />
+      <SectionDivider />
+      <GitHubContributions />
       <SectionDivider />
       <About />
       <Skills />

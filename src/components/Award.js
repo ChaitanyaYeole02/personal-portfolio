@@ -10,12 +10,12 @@ export default function Award({ title, description, year }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <section className="bg-gray-100 border border-black/5 rounded-lg p-6 dark:bg-white/10 dark:text-white">
-        <h3 className="text-2xl font-semibold">{title}</h3>
-        <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
+      <section className="terminal-bg pixel-border p-6">
+        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">{title}</h3>
+        <p className="mt-2 leading-relaxed text-green-600 dark:text-green-400">
           {description}
         </p>
-        <span className="block mt-4 text-sm text-gray-500 dark:text-white/50">
+        <span className="block mt-4 text-sm text-green-600 dark:text-green-400">
           {year}
         </span>
       </section>

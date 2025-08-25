@@ -1,8 +1,7 @@
 import React from "react";
-import Head from 'next/head';
 import Header from "@/components/Header";
 import '../styles/globals.css';
-import { Inter } from "next/font/google";
+import { Inter, Press_Start_2P, JetBrains_Mono } from "next/font/google";
 import ActiveSectionContextProvider from "@/context/ActiveSectionContext";
 import Footer from "@/components/Footer";
 import ThemeSwitch from "@/components/ThemeSwitch";
@@ -10,6 +9,16 @@ import ThemeContextProvider from "@/context/ThemeContext";
 import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
+const jetbrainsMono = JetBrains_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Chaitanya | Personal Portfolio",
@@ -31,11 +40,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="!scroll-smooth">
-      <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
-      >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
+      <head>
+        {/* Google Fonts fallback for Press Start 2P */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Press+Start+2P:wght@400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${pressStart2P.className} relative pt-28 sm:pt-36`}>
+        {/* Pixelated grid background is handled in CSS */}
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>

@@ -44,20 +44,20 @@ export default function Contact() {
     >
       <SectionHeading>Contact me</SectionHeading>
 
-      <p className="text-gray-700 -mt-6 dark:text-white/80">
+      <p className="text-green-600 dark:text-green-400 -mt-6">
         Please contact me directly at{" "}
-        <a className="underline" href="mailto:cyeole99@gmail.com">
+        <a className="underline text-gray-900 dark:text-white" href="mailto:cyeole99@gmail.com">
           cyeole@outlook.com
         </a>{" "}
         or through this form.
       </p>
 
       <form
-        className="mt-10 flex flex-col dark:text-black"
+        className="mt-10 flex flex-col"
         onSubmit={handleSubmit}
       >
         <input
-          className="h-14 px-4 rounded-lg borderBlack dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="h-14 px-4 terminal-bg pixel-border text-green-600 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:outline-none focus:border-green-600 dark:focus:border-green-400"
           name="senderEmail"
           type="email"
           required
@@ -65,7 +65,7 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-          className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="h-52 my-3 terminal-bg pixel-border p-4 text-green-600 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:outline-none focus:border-green-600 dark:focus:border-green-400"
           name="message"
           placeholder="Your message"
           required

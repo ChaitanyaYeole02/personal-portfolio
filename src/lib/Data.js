@@ -2,7 +2,7 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import publicationOneImg  from "../../public/publicationOneImg.png"
+import publicationOneImg from "../../public/publicationOneImg.png"
 import projectOcr from "../../public/projectOcr.png"
 import projectBMS from "../../public/projectBMS.png"
 
@@ -10,6 +10,10 @@ export const links = [
   {
     name: "Home",
     hash: "#home",
+  },
+  {
+    name: "GitHub",
+    hash: "#github-contributions",
   },
   {
     name: "About",
@@ -47,7 +51,7 @@ export const experiencesData = [
     location: "SUNY - Research Foundation, NY",
     description:
       "As I was praised by my seniors for my work, my part-time was converted into an Internship." + " " +
-      "During this period, I enhanced the backend and UI of a genomic search platform, " + 
+      "During this period, I enhanced the backend and UI of a genomic search platform, " +
       "implemented multi-threading to reduce download speeds by 82%, and developed GraphQL APIs " +
       "for efficient data fetching, significantly improving user experience.",
     icon: React.createElement(CgWorkAlt),
@@ -58,7 +62,7 @@ export const experiencesData = [
     location: "SUNY - Research Foundation, NY",
     description:
       "I worked as a Full-Stack developer for 9 months while completing my Masters Degree." + " " +
-      "I harnessed Python, React, Next.js, and GraphQL to architect a high performance search engine, " + 
+      "I harnessed Python, React, Next.js, and GraphQL to architect a high performance search engine, " +
       "signficantly boosting efficiency and culmunating in a 40% improvement in search response times.",
     icon: React.createElement(LuGraduationCap),
     date: "September 2023 - April 2024 (8 mos)",
@@ -67,8 +71,8 @@ export const experiencesData = [
     title: "Software Development Engineer II",
     location: "Statiq (Y-Combinator S20), India",
     description:
-      "As a Software Development Engineer II, I led the WebSockets and EV Charger teams, strategizing with the CTO to secure $25.7M in Series A funding." + " " + 
-      "My team upgraded to an ASGI framework, boosting connectivity by 2600% with Kubernetes." + " " + 
+      "As a Software Development Engineer II, I led the WebSockets and EV Charger teams, strategizing with the CTO to secure $25.7M in Series A funding." + " " +
+      "My team upgraded to an ASGI framework, boosting connectivity by 2600% with Kubernetes." + " " +
       "I engineered the OCPI HUB for global EV charger access and developed DC charger firmware (60kW: CCS) for seamless use via OCPP 1.6 protocol.",
     icon: React.createElement(CgWorkAlt),
     date: "April 2022 - June 2023 (1 yr 3 mos)",
@@ -76,11 +80,11 @@ export const experiencesData = [
   {
     title: "Software Development Engineer I",
     location: "Statiq (Y-Combinator S20), India",
-    description: 
-    "After my internship, I received a full-time offer at Statiq." + " " + 
-    "I built a notification panel using Firebase and AWS Lambda, boosting marketing efficiency." + " " + 
-    "I integrated Sentry, Stripe, and RazorPay for better debugging, logging, and payments." + " " + 
-    "I developed RESTful APIs with Python and MySQL, improving the EV user-charger interface.",
+    description:
+      "After my internship, I received a full-time offer at Statiq." + " " +
+      "I built a notification panel using Firebase and AWS Lambda, boosting marketing efficiency." + " " +
+      "I integrated Sentry, Stripe, and RazorPay for better debugging, logging, and payments." + " " +
+      "I developed RESTful APIs with Python and MySQL, improving the EV user-charger interface.",
     icon: React.createElement(CgWorkAlt),
     date: "August 2021 - March 2022 (8 mos)",
   },
@@ -88,8 +92,8 @@ export const experiencesData = [
     title: "Software Development Intern",
     location: "Statiq (Y-Combinator S20), India",
     description:
-      "During my final term of graduation, I joined Statiq as their first developer, working directly under the CTO." + " " + 
-      "I optimized communication via AWS SQS, enhancing data efficiency by 30%, and architected a MySQL database, boosting system efficiency by 40%." + " " + 
+      "During my final term of graduation, I joined Statiq as their first developer, working directly under the CTO." + " " +
+      "I optimized communication via AWS SQS, enhancing data efficiency by 30%, and architected a MySQL database, boosting system efficiency by 40%." + " " +
       "I also implemented IEC61851 models for EV chargers, increasing reliability and user satisfaction by 25%.",
     icon: React.createElement(CgWorkAlt),
     date: "January 2021 - July 2021 (7 mos)",
@@ -155,8 +159,8 @@ export const projectsData = [
     title: "Molecular Solubility Prediction Using Deep Graph Neural Networks",
     description:
       "Predicted compound solubility in water by training a deep graph neural network in PyTorch, significantly advancing the accuracy of molecular solubility predictions.",
-      tags: ["PyTorch", "GNNs", "Deep Learning"],
-      imageUrl: projectOcr,
+    tags: ["PyTorch", "GNNs", "Deep Learning"],
+    imageUrl: projectOcr,
   },
 ];
 
@@ -165,9 +169,9 @@ export const publicationsData = [
     title: "Deep Learning Techniques for Human Activity Recognition, IJISRT",
     description:
       "Published a research paper in IJISRT on advanced deep learning techniques for human activity recognition, demonstrating significant improvements in video-based analysis accuracy.",
-      tags: ["Deep Learning", "Human Activity Recognition"],
-      imageUrl: publicationOneImg,
-      url: "https://ijisrt.com/deep-neural-network-approachesfor-video-based-human-activity-recognition",
+    tags: ["Deep Learning", "Human Activity Recognition"],
+    imageUrl: publicationOneImg,
+    url: "https://ijisrt.com/deep-neural-network-approachesfor-video-based-human-activity-recognition",
   },
 ];
 
