@@ -8,15 +8,15 @@ export default function SubmitBtn() {
   return (
     <button
       type="submit"
-      className="group flex items-center justify-center gap-2 h-[3rem] w-[8rem] pixel-button disabled:scale-100 disabled:bg-opacity-65"
+      className="gameboy-button group flex items-center gap-2"
       disabled={pending}
     >
       {pending ? (
-        <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
+        <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-current"></div>
       ) : (
         <>
-          Submit{" "}
-          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
+          <span>Send Message</span>
+          <FaPaperPlane className="text-xs" />
         </>
       )}
     </button>

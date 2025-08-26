@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, createContext, useContext } from "react";
-import { sectionNames } from "@/lib/Types"; // Ensure you have sectionNames defined in your utils
 
 const ActiveSectionContext = createContext(null);
 

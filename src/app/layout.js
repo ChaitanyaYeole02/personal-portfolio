@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className={`${pressStart2P.className} relative pt-28 sm:pt-36`}>
+      <body className={`${pressStart2P.className} relative pt-28 sm:pt-36 !scroll-smooth`}>
         {/* Pixelated grid background is handled in CSS */}
 
         <ThemeContextProvider>

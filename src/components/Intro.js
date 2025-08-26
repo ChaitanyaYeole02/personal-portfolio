@@ -79,9 +79,9 @@ export default function Intro() {
 
   return (
     <section
-      ref={ref}
       id="home"
-      className="mb-40 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      ref={ref}
+      className="mb-40 max-w-8xl text-center sm:mb-0 scroll-mt-28"
     >
       {/* Main Title */}
       <motion.h1

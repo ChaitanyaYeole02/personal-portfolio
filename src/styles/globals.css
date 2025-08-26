@@ -167,6 +167,115 @@ body {
   box-shadow: none !important;
 }
 
+/* Custom Gameboy Button Variants */
+.gameboy-button-email {
+  background: #2563eb !important;
+  color: white !important;
+  border: 3px solid #1e40af !important;
+  font-family: "Press Start 2P", "Orbitron", monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 12px 24px !important;
+  box-shadow: 4px 4px #1e40af !important;
+  transition: all 0.1s ease !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.gameboy-button-email:hover {
+  background-color: #1d4ed8 !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px #1e40af !important;
+}
+
+.gameboy-button-email:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: none !important;
+}
+
+.gameboy-button-linkedin {
+  background: #0077b5 !important;
+  color: white !important;
+  border: 3px solid #005885 !important;
+  font-family: "Press Start 2P", "Orbitron", monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 12px 24px !important;
+  box-shadow: 4px 4px #005885 !important;
+  transition: all 0.1s ease !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.gameboy-button-linkedin:hover {
+  background-color: #005885 !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px #005885 !important;
+}
+
+.gameboy-button-linkedin:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: none !important;
+}
+
+.gameboy-button-github {
+  background: #1f2937 !important;
+  color: white !important;
+  border: 3px solid #111827 !important;
+  font-family: "Press Start 2P", "Orbitron", monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 12px 24px !important;
+  box-shadow: 4px 4px #111827 !important;
+  transition: all 0.1s ease !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.gameboy-button-github:hover {
+  background-color: #111827 !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px #111827 !important;
+}
+
+.gameboy-button-github:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: none !important;
+}
+
+.gameboy-button-portfolio {
+  background: #4a90e2 !important;
+  color: white !important;
+  border: 3px solid #2c5aa0 !important;
+  font-family: "Press Start 2P", "Orbitron", monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 12px 24px !important;
+  box-shadow: 4px 4px #2c5aa0 !important;
+  transition: all 0.1s ease !important;
+  font-size: 12px !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+}
+
+.gameboy-button-portfolio:hover {
+  background-color: #2c5aa0 !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px #2c5aa0 !important;
+}
+
+.gameboy-button-portfolio:active {
+  transform: translate(4px, 4px) !important;
+  box-shadow: none !important;
+}
+
 /* Gameboy Title Styling */
 .gameboy-title {
   font-family: "Press Start 2P", "Orbitron", monospace;

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function SectionDivider() {
   return (
     <motion.div
-      className="my-24 h-2 w-full max-w-4xl hidden sm:block pixel-border"
+      className="my-24 h-2 w-full max-w-6xl hidden sm:block pixel-border"
       style={{
         backgroundColor: 'hsl(var(--pop-yellow))',
         borderColor: 'hsl(var(--gameboy-darkest))',

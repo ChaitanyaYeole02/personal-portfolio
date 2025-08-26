@@ -7,7 +7,6 @@ import Projects from "@/components/Projects";
 import Publications from '@/components/Publications';
 import Awards from '@/components/Awards';
 import SectionDivider from "@/components/SectionDivider";
-import Skills from "@/components/Skills";
 import GitHubContributions from "@/components/GitHubContributions";
 
 export default function Home() {
@@ -18,12 +17,17 @@ export default function Home() {
       <GitHubContributions />
       <SectionDivider />
       <About />
-      <Skills />
+      <SectionDivider />
       <Experience />
+      <SectionDivider />
       <Publications />
+      <SectionDivider />
       <Projects />
+      <SectionDivider />
       <Awards />
+      <SectionDivider />
       <Contact />
+      <SectionDivider />
     </main>
   );
 }

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { links } from "@/lib/Data";
+import { links } from "@/data";
 import Link from "next/link";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 

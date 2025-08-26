@@ -1,78 +1,113 @@
 "use client";
 
-import React from "react";
-import SectionHeading from "./SectionHeading";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/Hooks";
-import { sendEmail } from "@/actions/SendEmail";
-import SubmitBtn from "./SubmitBtn";
-import toast from "react-hot-toast";
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
+// Animation variants - moved outside component to prevent recreation
+const containerVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.3 }
+  }
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.3 }
+  }
+};
+
+// Contact methods data
+const contactMethods = [
+  {
+    name: "Email",
+    href: "mailto:cyeole@outlook.com",
+    icon: FaEnvelope,
+    description: "Send me a direct email",
+    buttonClass: "gameboy-button-email"
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/chaitanyayeole",
+    icon: FaLinkedin,
+    description: "Connect with me professionally",
+    buttonClass: "gameboy-button-linkedin"
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/ChaitanyaYeole",
+    icon: FaGithub,
+    description: "Check out my code projects",
+    buttonClass: "gameboy-button-github"
+  }
+];
+
+// Memoized Contact Method Component
+const ContactMethod = React.memo(({ method }) => (
+  <motion.a
+    href={method.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`${method.buttonClass} group flex flex-col items-center text-center p-6 rounded-lg transition-all duration-300 hover:scale-105`}
+    whileHover={{ y: -5 }}
+  >
+    <method.icon className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-200" />
+    <h4 className="font-semibold text-sm mb-2">{method.name}</h4>
+    <p className="text-xs opacity-90 leading-relaxed">{method.description}</p>
+  </motion.a>
+));
+
+ContactMethod.displayName = 'ContactMethod';
+
+// Main Contact Component
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const { data, error } = await sendEmail(formData);
-
-    if (error) {
-      toast.error(error);
-      return;
-    }
-
-    toast.success("Email sent successfully!");
-  };
+  // Memoized contact methods display
+  const contactMethodsDisplay = useMemo(() => (
+    <div className="w-full max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {contactMethods.map((method, index) => (
+          <ContactMethod key={index} method={method} />
+        ))}
+      </div>
+    </div>
+  ), []);
 
   return (
-    <motion.section
+    <section
       id="contact"
       ref={ref}
-      className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
+      className="mb-28 max-w-6xl text-center sm:mb-0 scroll-mt-28"
     >
-      <SectionHeading>Contact me</SectionHeading>
-
-      <p className="text-green-600 dark:text-green-400 -mt-6">
-        Please contact me directly at{" "}
-        <a className="underline text-gray-900 dark:text-white" href="mailto:cyeole99@gmail.com">
-          cyeole@outlook.com
-        </a>{" "}
-        or through this form.
-      </p>
-
-      <form
-        className="mt-10 flex flex-col"
-        onSubmit={handleSubmit}
+      {/* Header Section */}
+      <motion.div
+        className="mb-12 mt-4 px-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
       >
-        <input
-          className="h-14 px-4 terminal-bg pixel-border text-green-600 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:outline-none focus:border-green-600 dark:focus:border-green-400"
-          name="senderEmail"
-          type="email"
-          required
-          maxLength={500}
-          placeholder="Your email"
-        />
-        <textarea
-          className="h-52 my-3 terminal-bg pixel-border p-4 text-green-600 dark:text-green-400 placeholder-green-700 dark:placeholder-green-500 focus:outline-none focus:border-green-600 dark:focus:border-green-400"
-          name="message"
-          placeholder="Your message"
-          required
-          maxLength={5000}
-        />
-        <SubmitBtn />
-      </form>
-    </motion.section>
+        <h2 className="gameboy-title text-3xl">Get In Touch</h2>
+        <p className="mt-4 text-lg">Choose your preferred way to connect</p>
+      </motion.div>
+
+      {/* Content Container */}
+      <motion.div
+        className="flex flex-col items-center px-4"
+        variants={contentVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Contact Methods Grid */}
+        {contactMethodsDisplay}
+      </motion.div>
+    </section>
   );
 }

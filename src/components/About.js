@@ -63,9 +63,9 @@ export default function About() {
 
   return (
     <section
-      ref={ref}
       id="about"
-      className="mb-28 max-w-[85rem] text-center sm:mb-0 scroll-mt-[100rem]"
+      ref={ref}
+      className="mb-28 max-w-8xl text-center sm:mb-0 scroll-mt-28"
     >
       {/* Header Section */}
       <motion.div
@@ -86,7 +86,7 @@ export default function About() {
         animate="visible"
       >
         {/* Main About Card */}
-        <div className="bg-white dark:bg-gray-900 p-8 rounded-lg border-2 border-black dark:border-white shadow-[4px_4px_0_#000,8px_8px_0_#000] dark:shadow-[4px_4px_0_#fff,8px_8px_0_#fff] max-w-8xl">
+        <div className="bg-white dark:bg-gray-900 p-8 rounded-lg border-2 border-black dark:border-white shadow-[4px_4px_0_#000,8px_8px_0_#000] dark:shadow-[4px_4px_0_#fff,8px_8px_0_#fff] max-w-7xl">
           <div className="text-left space-y-6">
 
             {/* Professional Summary */}
@@ -102,22 +102,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* Education */}
-            <div className="space-y-3">
-              <SectionHeader title="EDUCATION" emoji="🎓" />
-              <div className="space-y-2">
-                <p className="font-jetbrains text-gray-700 dark:text-gray-300 text-lg text-justify">
-                  <span className="font-bold">Masters of Science (M.S.) in Computer Science</span>
-                  <br />
-                  <span className="italic text-gray-600 dark:text-gray-400">The State University of New York at Buffalo, NY</span>
-                </p>
-                <p className="font-jetbrains text-gray-700 dark:text-gray-300 text-lg text-justify">
-                  <span className="font-bold">Bachelors of Technology (B.Tech) in Electronics and Communication Engineering</span>
-                  <br />
-                  <span className="italic text-gray-600 dark:text-gray-400">MIT - WPU, Pune</span>
-                </p>
-              </div>
-            </div>
 
             {/* Key Highlights */}
             <div className="space-y-3">

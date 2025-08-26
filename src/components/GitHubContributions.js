@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useSectionInView } from "@/lib/Hooks";
 
 // Configuration constants
 const CONFIG = {
@@ -124,8 +125,18 @@ const ContributionStats = ({ totalContributions, currentStreak, longestStreak, l
     </div>
 );
 
+// Helper function for streak date formatting
+const formatStreakDates = (streakCount, startDate) => {
+    if (streakCount === 1) {
+        return `Since ${startDate}`;
+    } else {
+        return `${startDate} - Present`;
+    }
+};
+
 // Main Component
 export default function GitHubContributions() {
+    const { ref } = useSectionInView("Activity");
     const [imageLoaded, setImageLoaded] = useState(false);
     const [imageError, setImageError] = useState(false);
     const [loading, setLoading] = useState(true);
@@ -143,7 +154,9 @@ export default function GitHubContributions() {
         const fetchContributionStats = async () => {
             try {
                 console.log('Fetching contribution stats from GitHub Streak Stats API...');
-                const response = await fetch(`${CONFIG.streakStatsUrl}/?user=${CONFIG.username}`);
+
+                const corsProxy = 'https://api.allorigins.win/raw?url=';
+                const response = await fetch(`${corsProxy}${encodeURIComponent(`${CONFIG.streakStatsUrl}/?user=${CONFIG.username}`)}`);
 
                 if (response.ok) {
                     const htmlContent = await response.text();
@@ -176,7 +189,9 @@ export default function GitHubContributions() {
 
                         // Extract date for current streak (usually shows when it started)
                         const currentStreakDateMatch = statsText.match(/Current Streak\s+(\w{3}\s+\d{1,2})/);
-                        const currentStreakDates = currentStreakDateMatch ? `Since ${currentStreakDateMatch[1]}` : "Since Aug 24";
+                        const currentStreakDates = currentStreakDateMatch
+                            ? formatStreakDates(currentStreak, currentStreakDateMatch[1])
+                            : formatStreakDates(currentStreak, "Aug 24");
 
                         console.log('Parsed stats:', {
                             totalContributions,
@@ -212,12 +227,12 @@ export default function GitHubContributions() {
         const setDefaultStats = () => {
             // Set fallback values if API fails
             setContributionStats({
-                totalContributions: 2848,
-                currentStreak: 1,
+                totalContributions: 2860,
+                currentStreak: 2,
                 longestStreak: 128,
                 longestStreakDates: "Dec 2, 2024 - Apr 8",
                 totalContributionsDates: "Jan 12, 2021 - Present",
-                currentStreakDates: "Since Aug 24"
+                currentStreakDates: formatStreakDates(2, "Aug 24")  // "Aug 24 - Present"
             });
         };
 
@@ -254,10 +269,14 @@ export default function GitHubContributions() {
         return () => clearTimeout(timer);
     }, []);
 
-    // Loading state
+    // Loading state - MUST have the ID for navigation to work
     if (loading) {
         return (
-            <section className="mb-28 max-w-[85rem] text-center sm:mb-0 scroll-mt-[100rem]">
+            <section
+                id="activity"
+                ref={ref}
+                className="mb-28 max-w-8xl text-center sm:mb-0 scroll-mt-28"
+            >
                 <motion.div
                     className="mb-10 mt-4 px-4"
                     variants={animationVariants}
@@ -272,7 +291,11 @@ export default function GitHubContributions() {
     }
 
     return (
-        <section className="mb-28 max-w-[85rem] text-center sm:mb-0 scroll-mt-[100rem]">
+        <section
+            id="activity"
+            ref={ref}
+            className="mb-28 max-w-8xl text-center sm:mb-0 scroll-mt-28"
+        >
             {/* Header Section */}
             <motion.div
                 className="mb-10 mt-4 px-4"
